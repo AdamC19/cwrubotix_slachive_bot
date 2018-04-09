@@ -22,22 +22,31 @@ def main():
 	#auth_resp 		= sc.api_call("auth.test")
 	channels_list 	= sc.api_call("channels.list")
 	history   		= sc.api_call("channels.history")
+	
 
-	#sep(2)
-	#print(response)
-	#sep(2)
-	#print(auth_resp)
-	#sep(2)
-	#channelsJSON = channels_list.encode('utf_8', 'strict')
-	#print(channels_list)
 	sep(2)
-#	print(history)
-#	sep(2)
-
-	#json.loads(channels_list)
-	print(json.dumps(channels_list) )
+	
+#	jsonObj = json.load(channels_list)
+#	print(json.dumps(channels_list) )
 	#for key in channels_list:
 	#	print(channels_list[key])
+	 
+	# check if it came back OK
+	if channels_list['ok'] == True:
+		print('Authorization succeeded')
+		
+		channels = channels_list['channels']
+		
+		# list the keys in the channels dict
+		for channel in channels:
+			print("Name : " + channel['name'] )
+			# for key in channel:
+			# 	print("Key : " + str(key))
+			
+
+	else:
+		print('Authorization failed :(')
+	
 
 #===============================================================================
 if __name__ == '__main__':
