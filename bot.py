@@ -40,8 +40,8 @@ def main():
 		# list the keys in the channels dict
 		for channel in channels:
 			print("Name : " + channel['name'] )
-			# for key in channel:
-			# 	print("Key : " + str(key))
+			for key in channel:
+				print("\tKey : " + str(key))
 			
 
 	else:
